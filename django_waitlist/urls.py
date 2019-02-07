@@ -9,7 +9,7 @@ from django.views.generic import TemplateView, RedirectView
 
 from django.contrib import admin
 
-from django_waitlist.views import sign_up, sign_in, big_transfer
+from django_waitlist.views import sign_up, sign_in, big_transfer, path_param
 
 urlpatterns = [
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
@@ -32,6 +32,7 @@ urlpatterns = [
         name='password_reset_confirm'),
     url(r'^users/reset/done/$', password_reset_complete, name='password_reset_complete'),
     url(r'^big_transfer/$', big_transfer, name='big_transfer'),
+    url(r'^path_param/.+$', path_param, name='path_param'),
 ]
 
 urlpatterns += [url(r'^number_' + str(i) + '/$', TemplateView.as_view(template_name="homepage.html"), name="home") for i in range(1, 1000)]

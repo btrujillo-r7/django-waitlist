@@ -11,6 +11,10 @@ from django.utils.http import is_safe_url
 
 from django_waitlist.forms import UserForm
 
+def path_param(request):
+    context = {'is_registered': True, 'user_form': UserForm()}
+    return render(request, 'registration/register.html', context)
+
 def sign_up(request):
     is_registered = False
 
