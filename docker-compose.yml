@@ -49,6 +49,8 @@ services:
       context: .
       dockerfile: docker/Dockerfile.django19
     command: sh -c "pip install --upgrade tcell_agent && tcell_agent run uwsgi --ini uwsgi.ini"
+    cap_add:
+      - ALL
     volumes:
       - .:/app
     ports:

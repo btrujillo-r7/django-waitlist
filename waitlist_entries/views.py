@@ -39,7 +39,7 @@ def create(request):
             try:
                 data = json.loads(request.body)
             except Exception as e:
-                print "Error parsing request body: {e}".format(e=e)
+                print("Error parsing request body: {e}".format(e=e))
 
         waitlist_entry_form = WaitlistEntryForm(data)
 

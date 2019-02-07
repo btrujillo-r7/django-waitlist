@@ -20,7 +20,7 @@ def search(request):
 
 def sql_exception(request):
     for p in WaitlistEntry.objects.raw("select * from wailskfdj"):
-        print p
+        print(p)
 
 def send_me_json(request):
     if request.method == 'POST':

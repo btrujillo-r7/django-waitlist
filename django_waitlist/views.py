@@ -30,7 +30,7 @@ def sign_up(request):
             is_registered = True
 
         else:
-            print user_form.errors
+            print((user_form.errors))
 
     else:
         user_form = UserForm()
@@ -68,7 +68,7 @@ def sign_in(request,
         return render(request, 'registration/login.html', context)
 
 
-import cStringIO as StringIO
+import io as StringIO
 import csv
 from django.http import StreamingHttpResponse
 def big_transfer(request):
@@ -77,7 +77,7 @@ def big_transfer(request):
         writer = csv.writer(buffer_)
 
         for i in range(5000):
-            row = ",".join(map(str, range(100)))
+            row = ",".join(map(str, list(range(100))))
             writer.writerow(row)
             buffer_.seek(0)
             data = buffer_.read()
