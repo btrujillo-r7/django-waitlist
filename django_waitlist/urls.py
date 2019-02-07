@@ -36,5 +36,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [url(r'^number_' + str(i) + '/$', TemplateView.as_view(template_name="homepage.html"), name="home") for i in range(1, 1000)]
+urlpatterns += [url(r'^api/(?P<resource_name>resource_' + str(i) + ')/(?P<pk>\w[\w-]*)/?', TemplateView.as_view(template_name="homepage.html"), name="home") for i in range(1, 6000)]
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
